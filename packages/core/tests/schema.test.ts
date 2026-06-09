@@ -37,6 +37,45 @@ describe("validateComposition", () => {
     const result = await validateComposition(bad);
     expect(result.valid).toBe(false);
   });
+
+  it("accepts social globalTheme", async () => {
+    const spec = { ...VALID as object, globalTheme: "social" };
+    const result = await validateComposition(spec);
+    expect(result.valid).toBe(true);
+  });
+
+  it("accepts v0.2 scene types", async () => {
+    const newTypes = ["insight", "evidence", "person", "contrast", "framework", "narrative"] as const;
+    for (const type of newTypes) {
+      const spec = {
+        ...(VALID as Record<string, unknown>),
+        scenes: [{ id: "s1", type, durationFrames: 120, props: {} }],
+      };
+      const result = await validateComposition(spec);
+      expect(result.valid).toBe(true);
+    }
+  });
+
+  it("accepts optional transitionIn on scenes", async () => {
+    const spec = {
+      ...(VALID as Record<string, unknown>),
+      scenes: [
+        { id: "s1", type: "title", durationFrames: 120, props: {}, transitionIn: "fade" },
+        { id: "s2", type: "insight", durationFrames: 150, props: {}, transitionIn: "slide" },
+      ],
+    };
+    const result = await validateComposition(spec);
+    expect(result.valid).toBe(true);
+  });
+
+  it("rejects invalid transitionIn value", async () => {
+    const spec = {
+      ...(VALID as Record<string, unknown>),
+      scenes: [{ id: "s1", type: "title", durationFrames: 120, props: {}, transitionIn: "zoom" }],
+    };
+    const result = await validateComposition(spec);
+    expect(result.valid).toBe(false);
+  });
 });
 
 describe("totalFrames", () => {

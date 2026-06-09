@@ -21,7 +21,7 @@
     },
     "globalTheme": {
       "type": "string",
-      "enum": ["book-chapter", "minimal-dark"]
+      "enum": ["book-chapter", "minimal-dark", "social"]
     },
     "scenes": {
       "type": "array",
@@ -34,10 +34,17 @@
           "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
           "type": {
             "type": "string",
-            "enum": ["title", "concept", "diagram", "quote", "code", "stats", "transition", "outro"]
+            "enum": [
+              "title", "concept", "diagram", "quote", "code", "stats", "transition", "outro",
+              "insight", "evidence", "person", "contrast", "framework", "narrative"
+            ]
           },
           "durationFrames": { "type": "integer", "minimum": 1 },
-          "props": { "type": "object" }
+          "props": { "type": "object" },
+          "transitionIn": {
+            "type": "string",
+            "enum": ["fade", "slide", "wipe", "flip", "none"]
+          }
         }
       }
     }

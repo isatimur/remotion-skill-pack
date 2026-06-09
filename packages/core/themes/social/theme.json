@@ -1,0 +1,25 @@
+{
+  "name": "social",
+  "version": "0.2.0",
+  "description": "9:16 vertical format for Instagram Reels, TikTok, YouTube Shorts, and LinkedIn. High-contrast, kinetic, single-idea-per-scene.",
+  "colors": {
+    "background": "#0a0a0f",
+    "surface": "#141420",
+    "text": "#ffffff",
+    "textMuted": "#9ca3af",
+    "accent": "#f472b6",
+    "accentDim": "#831843",
+    "border": "#1f2937",
+    "code": "#1e1e2e"
+  },
+  "typography": {
+    "heading": "Inter, system-ui, sans-serif",
+    "body": "Inter, system-ui, sans-serif",
+    "mono": "JetBrains Mono, Fira Code, monospace"
+  },
+  "animation": {
+    "entryDuration": 8,
+    "transitionDuration": 10,
+    "springConfig": { "damping": 16, "mass": 0.8, "stiffness": 220 }
+  }
+}

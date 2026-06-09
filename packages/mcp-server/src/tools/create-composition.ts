@@ -10,7 +10,8 @@ export const createCompositionTool: ToolDefinition = {
     properties: {
       title: { type: "string", description: "Chapter or presentation title" },
       slug: { type: "string", description: "kebab-case slug (e.g. chapter-01-the-shift)" },
-      theme: { type: "string", enum: ["book-chapter", "minimal-dark"], default: "book-chapter" },
+      theme: { type: "string", enum: ["book-chapter", "minimal-dark", "social"], default: "book-chapter" },
+      format: { type: "string", enum: ["landscape", "social"], default: "landscape", description: "landscape = 1920×1080; social = 1080×1920 vertical (Reels/Shorts)" },
       keyIdeas: {
         type: "array",
         items: { type: "string" },
@@ -20,12 +21,14 @@ export const createCompositionTool: ToolDefinition = {
     },
   },
   async handler(input) {
-    const { title, slug: rawSlug, theme = "book-chapter", keyIdeas = [] } = input as {
+    const { title, slug: rawSlug, theme = "book-chapter", format = "landscape", keyIdeas = [] } = input as {
       title: string;
       slug?: string;
       theme?: string;
+      format?: "landscape" | "social";
       keyIdeas?: string[];
     };
+    const isSocial = format === "social";
     const slug =
       rawSlug ??
       title
@@ -33,8 +36,13 @@ export const createCompositionTool: ToolDefinition = {
         .replace(/[^a-z0-9]+/g, "-")
         .replace(/^-|-$/g, "");
 
-    const scenes: Array<{ id: string; type: string; durationFrames: number; props: Record<string, unknown> }> = [
-      { id: "s1-title", type: "title", durationFrames: 120, props: { headline: title, subhead: "From Copilot to Colleague", eyebrow: "" } },
+    const scenes: Array<{ id: string; type: string; durationFrames: number; props: Record<string, unknown>; transitionIn?: string }> = [
+      {
+        id: "s1-title",
+        type: "title",
+        durationFrames: isSocial ? 60 : 120,
+        props: { headline: title, subhead: isSocial ? "" : "From Copilot to Colleague", eyebrow: "" },
+      },
     ];
 
     if (keyIdeas.length > 0) {
@@ -46,17 +54,27 @@ export const createCompositionTool: ToolDefinition = {
       });
     }
 
-    scenes.push(
-      { id: "s3-transition", type: "transition", durationFrames: 60, props: { label: "The Argument", accent: true } },
-      { id: "s4-diagram", type: "diagram", durationFrames: 240, props: { heading: "Visualization", imagePath: "diagrams/placeholder.png", caption: "" } },
-      { id: "s5-quote", type: "quote", durationFrames: 150, props: { text: "Add a key quote here.", attribution: "", context: "" } },
-      { id: "s6-transition", type: "transition", durationFrames: 60, props: { label: "What to Do", accent: true } },
-      { id: "s7-takeaways", type: "concept", durationFrames: 180, props: { heading: "Key Takeaways", bullets: ["Takeaway 1", "Takeaway 2", "Takeaway 3"] } },
-      { id: "s8-outro", type: "outro", durationFrames: 150, props: { headline: "", callToAction: "fromcopilottocolleague.com", subline: "Read the full chapter" } },
-    );
+    if (isSocial) {
+      // Social / vertical format — short punchy scenes for Reels/Shorts
+      scenes.push(
+        { id: "s3-insight", type: "insight", durationFrames: 120, props: { claim: "Add the core non-obvious claim here.", category: "Key Insight", source: "" }, transitionIn: "slide" },
+        { id: "s4-evidence", type: "evidence", durationFrames: 90, props: { value: "?%", label: "Add the key statistic", source: "Source" }, transitionIn: "fade" },
+        { id: "s5-outro", type: "outro", durationFrames: 60, props: { headline: "Follow for more.", callToAction: "", subline: "" }, transitionIn: "fade" },
+      );
+    } else {
+      scenes.push(
+        { id: "s3-transition", type: "transition", durationFrames: 60, props: { label: "The Argument", accent: true } },
+        { id: "s4-diagram", type: "diagram", durationFrames: 240, props: { heading: "Visualization", imagePath: "diagrams/placeholder.png", caption: "" } },
+        { id: "s5-insight", type: "insight", durationFrames: 150, props: { claim: "Add the core non-obvious claim here.", category: "Key Insight", source: "" }, transitionIn: "fade" },
+        { id: "s6-quote", type: "quote", durationFrames: 150, props: { text: "Add a key quote here.", attribution: "", context: "" } },
+        { id: "s7-transition", type: "transition", durationFrames: 60, props: { label: "What to Do", accent: true } },
+        { id: "s8-takeaways", type: "concept", durationFrames: 180, props: { heading: "Key Takeaways", bullets: ["Takeaway 1", "Takeaway 2", "Takeaway 3"] } },
+        { id: "s9-outro", type: "outro", durationFrames: 150, props: { headline: "", callToAction: "fromcopilottocolleague.com", subline: "Read the full chapter" } },
+      );
+    }
 
     const spec = {
-      meta: { title, fps: 30, width: 1920, height: 1080, slug },
+      meta: { title, fps: 30, width: isSocial ? 1080 : 1920, height: isSocial ? 1920 : 1080, slug },
       globalTheme: theme,
       scenes,
     };

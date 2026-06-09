@@ -13,7 +13,7 @@ export async function loadTheme(name: string): Promise<Theme> {
   try {
     raw = await readFile(themePath, "utf-8");
   } catch {
-    const available = ["book-chapter", "minimal-dark"];
+    const available = ["book-chapter", "minimal-dark", "social"];
     throw new Error(`Theme "${name}" not found. Available: ${available.join(", ")}`);
   }
   return JSON.parse(raw) as Theme;
@@ -25,7 +25,7 @@ export async function loadThemePalette(name: string): Promise<string> {
 }
 
 export async function listThemes(): Promise<Array<{ name: string; description: string }>> {
-  const themes = ["book-chapter", "minimal-dark"];
+  const themes = ["book-chapter", "minimal-dark", "social"];
   const results = await Promise.all(
     themes.map(async (t) => {
       const theme = await loadTheme(t);

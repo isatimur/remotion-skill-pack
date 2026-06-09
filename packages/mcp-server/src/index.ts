@@ -7,6 +7,7 @@ import { validateCompositionTool } from "./tools/validate-composition.js";
 import { renderToTsxTool } from "./tools/render-to-tsx.js";
 import { listThemesTool } from "./tools/list-themes.js";
 import { getSceneTemplateTool } from "./tools/get-scene-template.js";
+import { generateFromTextTool } from "./tools/generate-from-text.js";
 
 export interface ToolDefinition {
   name: string;
@@ -21,6 +22,7 @@ const TOOLS: ToolDefinition[] = [
   renderToTsxTool,
   listThemesTool,
   getSceneTemplateTool,
+  generateFromTextTool,
 ];
 
 export function listToolDefinitions(): ToolDefinition[] {

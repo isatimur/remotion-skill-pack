@@ -6,7 +6,16 @@ export type SceneType =
   | "code"
   | "stats"
   | "transition"
-  | "outro";
+  | "outro"
+  // v0.2 — knowledge video + social formats
+  | "insight"
+  | "evidence"
+  | "person"
+  | "contrast"
+  | "framework"
+  | "narrative";
+
+export type TransitionType = "fade" | "slide" | "wipe" | "flip" | "none";
 
 export interface CompositionMeta {
   title: string;
@@ -21,11 +30,12 @@ export interface Scene {
   type: SceneType;
   durationFrames: number;
   props: Record<string, unknown>;
+  transitionIn?: TransitionType;
 }
 
 export interface CompositionSpec {
   meta: CompositionMeta;
-  globalTheme: "book-chapter" | "minimal-dark";
+  globalTheme: "book-chapter" | "minimal-dark" | "social";
   scenes: Scene[];
 }
 
