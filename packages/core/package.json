@@ -1,0 +1,36 @@
+{
+  "name": "@remotion-skill-pack/core",
+  "version": "0.1.0",
+  "description": "Core schemas, SKILL.md, and bundled themes for remotion-skill-pack.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./skill": "./SKILL.md",
+    "./schema": "./composition.schema.json",
+    "./themes/book-chapter": "./themes/book-chapter/theme.json",
+    "./themes/minimal-dark": "./themes/minimal-dark/theme.json"
+  },
+  "files": [
+    "dist",
+    "SKILL.md",
+    "composition.schema.json",
+    "references",
+    "themes"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "lint": "eslint src",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^3.0.1"
+  },
+  "devDependencies": {
+    "vitest": "^1.5.0"
+  }
+}

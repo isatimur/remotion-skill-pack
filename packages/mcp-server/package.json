@@ -1,0 +1,30 @@
+{
+  "name": "@remotion-skill-pack/mcp-server",
+  "version": "0.1.0",
+  "description": "MCP stdio server for remotion-skill-pack — 5 tools for authoring and validating Remotion compositions.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "remotion-skill-pack-mcp": "./dist/index.js"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "lint": "eslint src",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@remotion-skill-pack/core": "workspace:*",
+    "@remotion-skill-pack/render": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "^1.5.0"
+  }
+}

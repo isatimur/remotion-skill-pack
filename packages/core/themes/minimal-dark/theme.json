@@ -1,0 +1,25 @@
+{
+  "name": "minimal-dark",
+  "version": "0.1.0",
+  "description": "Clean minimal dark theme for general technical presentations.",
+  "colors": {
+    "background": "#111827",
+    "surface": "#1f2937",
+    "text": "#e5e7eb",
+    "textMuted": "#9ca3af",
+    "accent": "#60a5fa",
+    "accentDim": "#2563eb",
+    "border": "#374151",
+    "code": "#0f172a"
+  },
+  "typography": {
+    "heading": "Inter, system-ui, sans-serif",
+    "body": "Inter, system-ui, sans-serif",
+    "mono": "JetBrains Mono, monospace"
+  },
+  "animation": {
+    "entryDuration": 8,
+    "transitionDuration": 8,
+    "springConfig": { "damping": 18, "mass": 0.8, "stiffness": 200 }
+  }
+}

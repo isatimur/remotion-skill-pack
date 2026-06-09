@@ -1,0 +1,25 @@
+{
+  "name": "book-chapter",
+  "version": "0.1.0",
+  "description": "Dark studio theme for From Copilot to Colleague chapter videos.",
+  "colors": {
+    "background": "#0f0f14",
+    "surface": "#1a1a24",
+    "text": "#f0f0f0",
+    "textMuted": "#a0a0b0",
+    "accent": "#6ee7b7",
+    "accentDim": "#2d9e7a",
+    "border": "#2a2a3a",
+    "code": "#1e1e2e"
+  },
+  "typography": {
+    "heading": "Inter, system-ui, sans-serif",
+    "body": "Inter, system-ui, sans-serif",
+    "mono": "JetBrains Mono, Fira Code, monospace"
+  },
+  "animation": {
+    "entryDuration": 15,
+    "transitionDuration": 15,
+    "springConfig": { "damping": 20, "mass": 1, "stiffness": 180 }
+  }
+}

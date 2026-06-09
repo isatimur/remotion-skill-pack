@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "remotion-skill-pack-render"
+version = "0.1.0"
+description = "Python CLI wrapper for @remotion-skill-pack/render — convert composition.json to Remotion TSX."
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+remotion-skill-pack-render = "remotion_skill_pack_render:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/remotion_skill_pack_render"]
+
+[tool.uv]
+dev-dependencies = ["pytest>=7.0", "ruff>=0.4"]
