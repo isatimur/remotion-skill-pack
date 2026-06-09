@@ -1,4 +1,5 @@
 """Minimal smoke test for the Python wrapper."""
+
 import importlib
 import remotion_skill_pack_render  # noqa: F401
 

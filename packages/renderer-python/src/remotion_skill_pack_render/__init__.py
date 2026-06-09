@@ -1,4 +1,5 @@
 """Python CLI wrapper for @remotion-skill-pack/render."""
+
 from __future__ import annotations
 import subprocess
 import sys

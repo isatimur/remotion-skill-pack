@@ -191,7 +191,7 @@ registerRoot(RemotionRoot);
 
 export function generateRootTsx(spec: CompositionSpec): string {
   const slug = spec.meta.slug ?? "video";
-  const compName = slug.replace(/-(\w)/g, (_, c: string) => c.toUpperCase()) + "Composition";
+  const compName = slug.replace(/-(\w)/g, (_: string, c: string) => c.toUpperCase()) + "Composition";
   return `import React from 'react';
 import { Composition } from 'remotion';
 import { ${compName}Composition, compositionId, durationInFrames, fps, width, height } from './Scene';
