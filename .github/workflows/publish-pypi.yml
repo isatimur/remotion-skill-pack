@@ -1,0 +1,29 @@
+name: Publish to PyPI
+
+on:
+  push:
+    tags:
+      - "remotion-skill-pack-render@*"
+
+jobs:
+  publish:
+    name: Build and publish Python package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: astral-sh/setup-uv@v4
+
+      - name: Build
+        run: uv build
+        working-directory: packages/renderer-python
+
+      - name: Publish
+        run: uv publish
+        working-directory: packages/renderer-python
+        env:
+          UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
