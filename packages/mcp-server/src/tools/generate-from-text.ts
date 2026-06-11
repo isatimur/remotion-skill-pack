@@ -32,7 +32,7 @@ export const generateFromTextTool: ToolDefinition = {
       text,
       format = "landscape",
       theme = "book-chapter",
-      maxDurationSeconds = 180,
+      maxDurationSeconds: _maxDurationSeconds = 180,
     } = input as { text: string; format?: string; theme?: string; maxDurationSeconds?: number };
 
     const isSocial = format === "social";
