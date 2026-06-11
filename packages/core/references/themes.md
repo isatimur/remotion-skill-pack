@@ -65,3 +65,41 @@ Clean, neutral dark theme. Good for general technical presentations.
 ```
 
 **Use for**: general-purpose video presentations.
+
+---
+
+## social
+
+9:16 vertical format — Instagram Reels, TikTok, YouTube Shorts, LinkedIn. High-contrast, kinetic, one idea per scene.
+
+**Composition defaults:** `1080 × 1920 · 30fps`
+
+```json
+{
+  "name": "social",
+  "colors": {
+    "background": "#0a0a0f",
+    "surface": "#141420",
+    "text": "#ffffff",
+    "textMuted": "#9ca3af",
+    "accent": "#f472b6",
+    "accentDim": "#831843",
+    "border": "#1f2937",
+    "code": "#1e1e2e"
+  },
+  "typography": {
+    "heading": "Inter, system-ui, sans-serif",
+    "body": "Inter, system-ui, sans-serif",
+    "mono": "JetBrains Mono, Fira Code, monospace"
+  },
+  "animation": {
+    "entryDuration": 8,
+    "transitionDuration": 10,
+    "springConfig": { "damping": 16, "mass": 0.8, "stiffness": 220 }
+  }
+}
+```
+
+**Scene duration targets:** title/insight 60–90f · evidence/quote 90–120f · concept 120–150f · outro 60f · **total ≤ 900f (30 s)**
+
+**Use for**: Instagram Reels, TikTok clips, YouTube Shorts, LinkedIn carousels. Pair with `insight` + `evidence` + `person` scene types for maximum virality.
