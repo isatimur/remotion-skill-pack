@@ -1,6 +1,16 @@
 # remotion-skill-pack
 
-AI agent skill pack for producing [Remotion](https://www.remotion.dev/) video presentations. Install once, and your AI coding agent can author structured composition specs that render to production-ready `.mp4` files.
+> Turn your AI coding agent into a video producer — structured specs in, real `.mp4` out.
+
+[![npm version](https://img.shields.io/npm/v/@remotion-skill-pack/mcp-server?label=npm&color=cb3837&logo=npm)](https://www.npmjs.com/package/@remotion-skill-pack/mcp-server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/isatimur/remotion-skill-pack?style=social)](https://github.com/isatimur/remotion-skill-pack/stargazers)
+
+<!-- TODO: hero demo GIF/MP4 of a rendered Remotion video — render an actual sample and embed here. Highest-leverage missing asset. -->
+
+Give any AI coding agent the ability to author [Remotion](https://www.remotion.dev/) video compositions as structured JSON specs that render to production-ready `.mp4` files.
+
+> ⭐ If this saves you an afternoon of Remotion boilerplate, star the repo — it's how others find it.
 
 ## Install
 
@@ -26,6 +36,13 @@ npx @remotion-skill-pack/install cli
 npx @remotion-skill-pack/render composition.json -o out/
 npx @remotion-skill-pack/render composition.json -o out/ --theme minimal-dark
 ```
+
+## Why this vs. plain Remotion / other tools
+
+- **Structured, agent-authorable specs** — agents emit a validated `composition.json` instead of hand-writing React/TSX, so output is predictable and reviewable.
+- **Multi-agent install in one command** — works across Claude Code, Cursor, Copilot, Codex, and Gemini CLI; no per-tool glue code.
+- **Renders to real `.mp4`** — the spec compiles to a Remotion composition and renders an actual video file, not a preview or a mockup.
+- **No boilerplate** — skip wiring `<Composition>`, sequences, and timing by hand; themes and the schema handle layout, so the agent focuses on content.
 
 ## Packages
 
