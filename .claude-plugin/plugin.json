@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "remotion-skill-pack",
+  "displayName": "Remotion Skill Pack",
+  "version": "0.1.0",
+  "description": "Give your AI agent the ability to author Remotion video compositions as structured scene-by-scene JSON specs that render to production-ready MP4 — no hand-writing React video code.",
+  "author": {
+    "name": "Timur Isachenko",
+    "url": "https://github.com/isatimur"
+  },
+  "repository": "https://github.com/isatimur/remotion-skill-pack",
+  "license": "MIT",
+  "keywords": [
+    "remotion",
+    "video",
+    "ai-video",
+    "react-video",
+    "claude-code",
+    "claude-skill",
+    "ai-agent"
+  ]
+}
