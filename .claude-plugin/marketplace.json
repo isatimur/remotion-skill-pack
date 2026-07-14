@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace-manifest.json",
+  "name": "remotion-skill-pack",
+  "owner": {
+    "name": "Timur Isachenko",
+    "url": "https://github.com/isatimur"
+  },
+  "description": "Agents author structured Remotion video specs (scene-by-scene JSON) that render to production-ready MP4.",
+  "plugins": [
+    {
+      "name": "remotion-skill-pack",
+      "source": "./",
+      "description": "The remotion-video-composer skill: author scene-by-scene composition JSON that renders to MP4 via the @remotion-skill-pack/render CLI.",
+      "license": "MIT",
+      "keywords": ["remotion", "video", "ai-video", "react-video"]
+    }
+  ]
+}
