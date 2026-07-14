@@ -1,6 +1,9 @@
 ---
 name: remotion-video-composer
 description: Make your AI agent produce structured Remotion video compositions — scene-by-scene JSON specs that render to production-ready animated video.
+license: MIT
+metadata:
+  author: isatimur
 ---
 
 # Remotion Video Composer
