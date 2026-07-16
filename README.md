@@ -6,7 +6,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/isatimur/remotion-skill-pack?style=social)](https://github.com/isatimur/remotion-skill-pack/stargazers)
 
-<!-- TODO: hero demo GIF/MP4 of a rendered Remotion video — render an actual sample and embed here. Highest-leverage missing asset. -->
+<p align="center">
+  <img src="docs/hero-demo.gif" alt="A Remotion video rendered from a composition.json spec — 'The AI Engineer Mindset'" width="720" />
+  <br/>
+  <em>Rendered straight from a <code>composition.json</code> spec — no hand-written React video code.</em>
+</p>
 
 Give any AI coding agent the ability to author [Remotion](https://www.remotion.dev/) video compositions as structured JSON specs that render to production-ready `.mp4` files.
 
