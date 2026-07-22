@@ -85,6 +85,62 @@
     footer a { color: var(--muted); }
     footer a:hover { color: var(--teal); }
   </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "remotion-skill-pack",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "description": "Open-source Claude Code skill + MCP server that lets an AI agent author Remotion video compositions as structured scene-by-scene JSON specs that render to production-ready MP4 \u2014 no hand-written React video code.",
+      "url": "https://github.com/isatimur/remotion-skill-pack",
+      "downloadUrl": "https://github.com/isatimur/remotion-skill-pack",
+      "softwareVersion": "0.1.0",
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Timur Isachenko"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is remotion-skill-pack?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Claude Code skill (and MCP server) that gives an AI agent a structured spec format for Remotion video compositions, decoupling what the video is from the React/TSX implementation, then renders to MP4. MIT licensed; works in Claude Code, Cursor, Codex, Gemini CLI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I install remotion-skill-pack?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Run '/plugin marketplace add isatimur/remotion-skill-pack' in Claude Code, then '/plugin install'. Or 'npx @remotion-skill-pack/install claude-code'."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why author video as a JSON spec instead of React code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI agents break raw Remotion React/TSX compositions. A structured scene-by-scene JSON spec is something the agent can reason over and revise reliably, and it still renders to production-ready MP4."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <header>
